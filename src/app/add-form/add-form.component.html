@@ -1,0 +1,23 @@
+<div class="container center p-1">
+
+  <form (ngSubmit)="saveUser()">
+    <div class="row p-1">
+      <label  class="p-1">Name:</label>
+      <input [(ngModel)]="user.name" name="name" required>
+    </div>
+    <div class="row p-1">
+      <label class="p-1">Date of Birth:</label>
+      <input type="date" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" required>
+    </div>
+    <div class="row p-1">
+      <label class="p-1">Gender:</label>
+      <input type="radio" [(ngModel)]="user.gender" name="gender" value="Male" required> Male
+      <input type="radio" [(ngModel)]="user.gender" name="gender" value="Female" required> Female
+    </div>
+    <div class="row p-1">
+
+      <button  class="p-1" type="submit">Save</button>
+    </div>
+  </form>
+
+</div>
