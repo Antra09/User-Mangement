@@ -5,10 +5,17 @@ import { HomeComponent } from './home/home.component';
 import { TableListComponent } from './table-list/table-list.component';
 import { AddFormComponent } from './add-form/add-form.component';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatRadioModule } from '@angular/material/radio';
+import { MatCardModule } from '@angular/material/card';
+import { MatIconModule } from '@angular/material/icon';
+
 // Add more Material modules as needed
 
 @NgModule({
-  declarations:[
+  declarations: [
     // HomeComponent,
     // TableListComponent,
     // AddFormComponent
@@ -18,8 +25,12 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     MatTabsModule,
     MatButtonModule,
-    // other Material modules
+    MatTableModule,
+    MatRadioModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCardModule,
+    MatIconModule,
   ],
-  // other properties
 })
-export class AppModule { }
+export class AppModule {}

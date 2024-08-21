@@ -1,23 +1,36 @@
 <div class="container center p-1">
+  <mat-card class="full-width">
+    <mat-card-content>
+      <form (ngSubmit)="saveUser()">
+        <div class="row p-1">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Name</mat-label>
+            <input matInput [(ngModel)]="user.name" name="name" required>
+          </mat-form-field>
+        </div>
 
-  <form (ngSubmit)="saveUser()">
-    <div class="row p-1">
-      <label  class="p-1">Name:</label>
-      <input [(ngModel)]="user.name" name="name" required>
-    </div>
-    <div class="row p-1">
-      <label class="p-1">Date of Birth:</label>
-      <input type="date" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" required>
-    </div>
-    <div class="row p-1">
-      <label class="p-1">Gender:</label>
-      <input type="radio" [(ngModel)]="user.gender" name="gender" value="Male" required> Male
-      <input type="radio" [(ngModel)]="user.gender" name="gender" value="Female" required> Female
-    </div>
-    <div class="row p-1">
+        <div class="row p-1">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Date of Birth</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateOfBirth" name="dateOfBirth"
+              [value]="user.dateOfBirth | date:'MM/dd/yyyy'" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
 
-      <button  class="p-1" type="submit">Save</button>
-    </div>
-  </form>
+        <div class="row p-1">
+          <label class="p-1">Gender:</label>
+          <mat-radio-group [(ngModel)]="user.gender" name="gender" required>
+            <mat-radio-button class="p-1" value="Male">Male</mat-radio-button>
+            <mat-radio-button class="p-1" value="Female">Female</mat-radio-button>
+          </mat-radio-group>
+        </div>
 
+        <div class="row p-1">
+          <button mat-raised-button color="primary" type="submit">Save</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
 </div>
