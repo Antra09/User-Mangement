@@ -34,7 +34,8 @@ export class AddFormComponent {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router ,
+    
   ) {}
 
   ngOnInit(): void {
@@ -58,7 +59,10 @@ export class AddFormComponent {
       this.userService.updateUser(this.user);
     } else {
       this.userService.addUser(this.user);
+      console.log(this.user);
     }
     this.userService.onEdit = false;
   }
+
+  
 }
