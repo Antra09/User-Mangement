@@ -9,7 +9,7 @@ export const routes: Routes = [
   { path: 'home', component: TableListComponent },
   { path: 'table-list', component: TableListComponent },
   { path: 'add-form', component: AddFormComponent },
-  { path: 'edit/:id', component: AddFormComponent },  // For editing records
+  { path: 'edit/:id', component: AddFormComponent },
 ];
 
 @NgModule({
@@ -17,4 +17,4 @@ export const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-// export const routes: Routes = [];
+

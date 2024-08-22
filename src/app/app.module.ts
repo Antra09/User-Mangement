@@ -12,16 +12,10 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 
-// Add more Material modules as needed
-
 @NgModule({
   declarations: [
-    // HomeComponent,
-    // TableListComponent,
-    // AddFormComponent
   ],
   imports: [
-    // other imports
     FormsModule,
     MatTabsModule,
     MatButtonModule,

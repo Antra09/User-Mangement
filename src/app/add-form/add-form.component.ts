@@ -34,8 +34,7 @@ export class AddFormComponent {
   constructor(
     private userService: UserService,
     private route: ActivatedRoute,
-    private router: Router ,
-    
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -44,7 +43,7 @@ export class AddFormComponent {
       this.user = this.userService.getUserById(id) || this.user;
       this.isEditMode = true;
       if (this.user) {
-        this.user = { ...this.user }; // Prefill the form with the user data
+        this.user = { ...this.user }; 
         this.isEditMode = true;
         this.userService.tabchange.next(1);
         this.userService.onEdit = true;
@@ -59,10 +58,7 @@ export class AddFormComponent {
       this.userService.updateUser(this.user);
     } else {
       this.userService.addUser(this.user);
-      console.log(this.user);
     }
     this.userService.onEdit = false;
   }
-
-  
 }

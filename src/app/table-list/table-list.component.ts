@@ -38,10 +38,7 @@ export class TableListComponent implements OnInit, OnDestroy {
     this.usersSubscription.unsubscribe();
   }
   editUser(id: number): void {
-    // Redirect to add form with prefilled data (using Angular Router)
     this.router.navigate(['/edit', id]);
-    // this.userService.tabchange.next(1)
-    // This requires navigation with query params or route parameters
   }
 
   deleteUser(id: number): void {
