@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserService } from '../user.service';
 import { User } from '../user.model';
 import { ActivatedRoute, Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
@@ -10,7 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { CommonModule } from '@angular/common';
-
+import { MatButtonModule } from '@angular/material/button';
 @Component({
   selector: 'app-add-form',
   standalone: true,
@@ -23,6 +23,7 @@ import { CommonModule } from '@angular/common';
     MatDatepickerModule,
     MatNativeDateModule,
     CommonModule,
+    MatButtonModule,
   ],
   templateUrl: './add-form.component.html',
   styleUrl: './add-form.component.css',
@@ -43,7 +44,7 @@ export class AddFormComponent {
       this.user = this.userService.getUserById(id) || this.user;
       this.isEditMode = true;
       if (this.user) {
-        this.user = { ...this.user }; 
+        this.user = { ...this.user };
         this.isEditMode = true;
         this.userService.tabchange.next(1);
         this.userService.onEdit = true;
@@ -53,12 +54,15 @@ export class AddFormComponent {
     }
   }
 
-  saveUser(): void {
-    if (this.isEditMode) {
-      this.userService.updateUser(this.user);
-    } else {
-      this.userService.addUser(this.user);
+  saveUser(form: NgForm): void {
+    if (form.valid) {
+      if (this.isEditMode) {
+        this.userService.updateUser(this.user);
+      } else {
+        this.userService.addUser(this.user);
+      }
+      this.userService.onEdit = false;
+      this.router.navigate(['/users']);
     }
-    this.userService.onEdit = false;
   }
 }
