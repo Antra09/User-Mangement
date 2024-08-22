@@ -1,15 +1,18 @@
 .full-width {
     width: 100%;
-  }
-  .p-1 {
+}
+
+.p-1 {
     padding: 8px;
-  }
-  .container {
+}
+
+.container {
     max-width: 600px;
     margin: 0 auto;
-  }
-  .center {
+}
+
+.center {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
+}

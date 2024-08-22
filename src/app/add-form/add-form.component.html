@@ -2,7 +2,7 @@
   <mat-card class="full-width">
     <mat-card-content>
       <!-- <form (ngSubmit)="saveUser()"> -->
-        <form #userForm="ngForm" (ngSubmit)="saveUser(userForm)" novalidate>
+      <form #userForm="ngForm" (ngSubmit)="saveUser(userForm)" novalidate>
         <div class="row p-1">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Name</mat-label>
@@ -12,11 +12,26 @@
                  </mat-error>
           </mat-form-field>
         </div>
-
+        <div class="row p-1">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email ID</mat-label>
+              <input matInput [(ngModel)]="user.email" name="email">
+          </mat-form-field>
+        </div>
+        <div class="row p-1">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Phone No.</mat-label>
+              <input matInput [(ngModel)]="user.phoneNo" name="phoneNo" #phoneNoInput="ngModel" required>
+            <mat-error *ngIf="phoneNoInput.invalid && phoneNoInput.touched">
+                   Phone no. is required
+                 </mat-error>
+          </mat-form-field>
+        </div>
         <div class="row p-1">
           <mat-form-field appearance="fill" class="full-width">
             <mat-label>Date of Birth</mat-label>
-            <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateOfBirth" name="dateOfBirth" #dobInput="ngModel"  required>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="user.dateOfBirth" name="dateOfBirth"
+              #dobInput="ngModel" required>
             <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
             <mat-error *ngIf="dobInput.invalid && dobInput.touched">
@@ -24,7 +39,6 @@
             </mat-error>
           </mat-form-field>
         </div>
-
         <div class="row p-1">
           <label class="p-1">Gender:</label>
           <mat-radio-group [(ngModel)]="user.gender" name="gender" required>

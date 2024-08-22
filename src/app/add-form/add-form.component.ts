@@ -29,7 +29,7 @@ import { MatButtonModule } from '@angular/material/button';
   styleUrl: './add-form.component.css',
 })
 export class AddFormComponent {
-  user: User = { id: 0, name: '', dateOfBirth: '', gender: '' };
+  user: User = { id: 0, name: '', dateOfBirth: '', gender: '', email: '', phoneNo:'' };
   isEditMode = false;
 
   constructor(

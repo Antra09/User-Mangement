@@ -20,6 +20,8 @@ export class TableListComponent implements OnInit, OnDestroy {
   usersSubscription: Subscription = new Subscription();
   displayedColumns: String[] = [
     'name',
+    'email',
+    'phoneNo',
     'dateOfBirth',
     'gender',
     'edit',
