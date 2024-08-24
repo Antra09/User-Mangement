@@ -11,6 +11,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { HttpClientModule } from '@angular/common/http';
+import { MainService } from './main.service';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MatIconModule } from '@angular/material/icon';
     MatFormFieldModule,
     MatCardModule,
     MatIconModule,
+    HttpClientModule
   ],
+  providers: [MainService],
 })
 export class AppModule {}
